@@ -1,0 +1,43 @@
+@import '../../styles/index.scss';
+
+.main {
+  font-size: $size-small;
+  display: flex;
+  border: 1px solid rgba(223, 229, 236, 1);
+  border-radius: 5px;
+  & div:first-child {
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    border-right: 1px solid rgba(223, 229, 236, 1);
+  }
+
+  & div:last-child {
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    border-left: 1px solid rgba(223, 229, 236, 1);
+  }
+}
+
+
+
+.item {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 168px;
+  height: 50px;
+  background-color: $color-white;
+  color: $color-black;
+}
+
+.active {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 168px;
+  height: 50px;
+  background-color: $color-blue;
+  color: $color-white;
+}

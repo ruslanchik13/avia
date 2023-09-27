@@ -1,0 +1,23 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 754px;
+}
+
+.content {
+  display: flex;
+  gap: 20px;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.img {
+  align-self: center;
+  width: 60px;
+  height: 60px;
+}

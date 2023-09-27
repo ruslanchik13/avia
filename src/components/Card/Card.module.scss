@@ -1,0 +1,55 @@
+@import '../../styles/index.scss';
+
+.header {
+  margin-bottom: 20px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.main {
+  border-radius: 5px;
+  width: 502px;
+  height: 184px;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
+  background-color: $color-white;
+}
+
+.container {
+  padding: 20px;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.items {
+  display: flex;
+  gap: 20px;
+}
+
+.item {
+  width: 141px;
+}
+
+.price {
+  font-size: $size-header;
+  color: $color-blue;
+}
+
+.title {
+  font-size: $size-small;
+  color: $color-gray;
+}
+
+.info {
+  font-size: $size-large;
+  color: $color-black;
+}
+
+.stops {
+  display: flex;
+}
