@@ -1,1 +1,1 @@
-avia-chi.vercel.app
+https://avia-chi.vercel.app/
