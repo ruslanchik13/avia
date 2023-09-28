@@ -24,7 +24,7 @@ function CardList() {
 					.slice(0, pagination)
 					.map((item) => (
 						<Card
-							key={item.price}
+							key={Math.random()}
 							price={item.price}
 							carrier={item.carrier}
 							segments={item.segments}
