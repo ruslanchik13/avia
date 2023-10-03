@@ -1,12 +1,12 @@
+import axios from 'axios';
 import {
 	createAsyncThunk,
 	createSlice,
 	current,
 	PayloadAction,
 } from '@reduxjs/toolkit';
-import axios from 'axios';
-import { ITicket } from '../../types/types';
 import { RootState } from '../store';
+import { ITicket } from '../../types/types';
 
 interface IState {
 	searchId: string;

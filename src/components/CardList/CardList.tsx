@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
-import Card from '../Card/Card';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { fetchSearchId, fetchTickets } from '../../store/reducers/ticketsSlice';
+import Card from '../Card/Card';
 import classes from './CardList.module.scss';
 
 function CardList() {
 	const dispatch = useAppDispatch();
-	const { searchId, isStop, tickets, pagination, error, filteredTickets } =
+	const { searchId, isStop, pagination, filteredTickets, loading } =
 		useAppSelector((state) => state.tickets);
 
 	useEffect(() => {
@@ -14,11 +14,25 @@ function CardList() {
 	}, [dispatch, searchId]);
 
 	useEffect(() => {
-		if (!isStop && searchId) dispatch(fetchTickets());
-	}, [dispatch, isStop, searchId, tickets, error]);
+		let timer: string | number | NodeJS.Timeout | undefined;
+		if (!isStop && searchId && loading !== 'pending') {
+			timer = setTimeout(() => {
+				dispatch(fetchTickets());
+			}, 100);
+		}
+		return () => {
+			clearTimeout(timer);
+		};
+	}, [isStop, searchId, loading]);
 
 	return (
 		<div className={classes.main}>
+			{!isStop && <div>Loading...</div>}
+			{filteredTickets.length === 0 && (
+				<div className={classes.error}>
+					Рейсов, подходящих под заданные фильтры, не найдено
+				</div>
+			)}
 			{filteredTickets &&
 				filteredTickets
 					.slice(0, pagination)

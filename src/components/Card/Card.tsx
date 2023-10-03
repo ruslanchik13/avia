@@ -1,8 +1,8 @@
-import classes from './Card.module.scss';
-import { ITicket } from '../../types/types';
 import formatDates from '../../helpers/formatDates';
 import formatArrive from '../../helpers/formatArrive';
 import formatPrice from '../../helpers/formatPrice';
+import { ITicket } from '../../types/types';
+import classes from './Card.module.scss';
 
 function Card({ price, carrier, segments }: ITicket) {
 	return (
