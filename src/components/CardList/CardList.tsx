@@ -6,24 +6,31 @@ import classes from './CardList.module.scss';
 
 function CardList() {
 	const dispatch = useAppDispatch();
-	const { searchId, isStop, pagination, filteredTickets, loading } =
-		useAppSelector((state) => state.tickets);
+	const {
+		searchId,
+		isStop,
+		pagination,
+		filteredTickets,
+		loading,
+		tickets,
+		error,
+	} = useAppSelector((state) => state.tickets);
 
 	useEffect(() => {
 		if (!searchId) dispatch(fetchSearchId());
 	}, [dispatch, searchId]);
 
 	useEffect(() => {
-		let timer: string | number | NodeJS.Timeout | undefined;
+		// let timer: string | number | NodeJS.Timeout | undefined;
 		if (!isStop && searchId && loading !== 'pending') {
-			timer = setTimeout(() => {
-				dispatch(fetchTickets());
-			}, 100);
+			// timer = setTimeout(() => {
+			dispatch(fetchTickets());
+			// }, 100);
 		}
-		return () => {
-			clearTimeout(timer);
-		};
-	}, [isStop, searchId, loading]);
+		// return () => {
+		// 	clearTimeout(timer);
+		// };
+	}, [searchId, isStop, tickets, error]);
 
 	return (
 		<div className={classes.main}>

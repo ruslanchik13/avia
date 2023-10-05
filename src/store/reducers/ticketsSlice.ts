@@ -139,9 +139,9 @@ export const tickets = createSlice({
 			state.error = '';
 		});
 		builder.addCase(fetchTickets.fulfilled, (state: IState, action) => {
+			state.isStop = action.payload.stop;
 			state.loading = 'succeeded';
 			state.tickets.push(...action.payload.tickets);
-			state.isStop = action.payload.stop;
 		});
 		builder.addCase(fetchTickets.rejected, (state: IState, action) => {
 			state.loading = 'failed';
